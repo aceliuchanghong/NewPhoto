@@ -1,11 +1,15 @@
 package org.liu.Grey;
 
-import org.liu.Grey.tools.FileDealer;
+import org.liu.Grey.core.ColorChanger;
 
 
 public class Main {
+
     public static void main(String[] args) {
-        FileDealer fileDealer = new FileDealer();
-        System.out.println(fileDealer.listFile().size());
+
+        ColorChanger cc = new ColorChanger();
+        cc.setColor("GRAY");
+
+        if(cc.changeTo()) System.out.println("SUC");
     }
 }

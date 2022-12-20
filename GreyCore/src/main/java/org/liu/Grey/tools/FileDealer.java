@@ -3,9 +3,9 @@ package org.liu.Grey.tools;
 import java.io.File;
 import java.util.ArrayList;
 
-public class FileDealer implements FileDeal{
-    private String testFilePath = "GreyCore/src/main/resources/pics";
-    private String fileSuffix = "jpg";
+public class FileDealer implements FileDeal {
+    private final String testFilePath = "GreyCore/src/main/resources/pics";
+    private final String fileSuffix = "jpg";
 
     @Override
     public ArrayList<String> listFile() {
@@ -13,17 +13,21 @@ public class FileDealer implements FileDeal{
     }
 
     public ArrayList<String> listFile(String testFilePath) {
-        return listFile(testFilePath,this.fileSuffix);
+        return listFile(testFilePath, this.fileSuffix);
     }
 
-    public ArrayList<String> listFile(String testFilePath,String suffix) {
+    public ArrayList<String> listFile(String testFilePath, String suffix) {
         ArrayList<String> res = new ArrayList<>();
         File file = new File(testFilePath);
         File[] tempList = file.listFiles();
-        for(int i=0;i<tempList.length;i++){
-            if(tempList[i].isFile()){
-                if(suffix.equals(tempList[i].getName().substring(tempList[i].getName().lastIndexOf(".") + 1))){
-                    res.add(tempList[i].getName());
+        if (tempList == null) {
+            System.out.println("No such Path or no file here:" + testFilePath);
+            return null;
+        }
+        for (File value : tempList) {
+            if (value.isFile()) {
+                if (suffix.equals(value.getName().substring(value.getName().lastIndexOf(".") + 1))) {
+                    res.add(value.getAbsolutePath());
                 }
             }
         }

@@ -6,6 +6,6 @@ import org.liu.Grey.tools.FileDealer;
 public class Main {
     public static void main(String[] args) {
         FileDealer fileDealer = new FileDealer();
-        System.out.println(fileDealer.listFile());
+        System.out.println(fileDealer.listFile().size());
     }
 }

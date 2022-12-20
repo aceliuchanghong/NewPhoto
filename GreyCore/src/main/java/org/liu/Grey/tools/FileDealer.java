@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class FileDealer implements FileDeal{
     private String testFilePath = "GreyCore/src/main/resources/pics";
-    //"src/main/resources/pics";
     private String fileSuffix = "jpg";
 
     @Override
@@ -19,7 +18,6 @@ public class FileDealer implements FileDeal{
 
     public ArrayList<String> listFile(String testFilePath,String suffix) {
         ArrayList<String> res = new ArrayList<>();
-
         File file = new File(testFilePath);
         File[] tempList = file.listFiles();
         for(int i=0;i<tempList.length;i++){
@@ -31,5 +29,4 @@ public class FileDealer implements FileDeal{
         }
         return res;
     }
-
 }

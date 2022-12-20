@@ -4,7 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class FileDealer implements FileDeal{
-    private String testFilePath = "src/main/resources/pics";
+    private String testFilePath = "GreyCore/src/main/resources/pics";
+    //"src/main/resources/pics";
     private String fileSuffix = "jpg";
 
     @Override
@@ -24,7 +25,6 @@ public class FileDealer implements FileDeal{
         for(int i=0;i<tempList.length;i++){
             if(tempList[i].isFile()){
                 if(suffix.equals(tempList[i].getName().substring(tempList[i].getName().lastIndexOf(".") + 1))){
-                    System.out.println(tempList[i].getName().substring(tempList[i].getName().lastIndexOf(".") + 1));
                     res.add(tempList[i].getName());
                 }
             }
